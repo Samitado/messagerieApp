@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: flex;
+        height: 300px;
+        width: 600px;
+        border: 2px solid green;
+        flex-direction: column-reverse;
+    }
+    #message{
+        border: 2px solid black;
+        display: flex;
+        
+    }
+    input{
+        flex-grow: 1;
+        border:none;
+    }
+    input:focus{
+        outline: none;
+        border:2px solid red
+    }
+    button {
+        margin-left: auto;
+    }
+</style>
+<body>
+    <form action="">
+        <div>Les messages s'afficheront ici</div>    
+        <div id="message">
+            <label>Type Here...</label>
+            <input type="text"/>
+            <button type="button">Send</button>
+        </div>
+    </form>
+</body>
+</html>

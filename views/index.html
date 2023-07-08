@@ -4,40 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/index.css">
 </head>
-<style>
-    body {
-        display: flex;
-        height: 300px;
-        width: 600px;
-        border: 2px solid green;
-        flex-direction: column-reverse;
-    }
-    #message{
-        border: 2px solid black;
-        display: flex;
-        
-    }
-    input{
-        flex-grow: 1;
-        border:none;
-    }
-    input:focus{
-        outline: none;
-        border:2px solid red
-    }
-    button {
-        margin-left: auto;
-    }
-</style>
-<body>
-    <form action="">
-        <div>Les messages s'afficheront ici</div>    
-        <div id="message">
+<script src="/socket.io/socket.io.js"></script>
+
+<body id="body">
+    <ul id="messages"></ul>
+    <form id="form" action=""> 
+        <div id="barre-message">
             <label>Type Here...</label>
-            <input type="text"/>
-            <button type="button">Send</button>
+            <input id="input" type="text"/>
+            <button type="submit">Send</button>
         </div>
     </form>
+    <script>
+        var socket = io();
+      
+        let form = document.getElementById('form');
+        let input = document.getElementById('input');
+        let messages = document.getElementById('messages')
+        
+
+        function createLiItem(content) {
+            let li = document.createElement('li');
+            li.textContent = content;
+            return li
+        }
+        
+      
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          if (input.value) {
+            socket.emit('chat message', input.value);
+            input.value = '';
+          }
+        });
+        socket.on('chat message', (message) => {
+            messages.appendChild(createLiItem(message));
+           
+            window.scrollTo(0, document.body.scrollHeight);
+        })
+    </script>
 </body>
+
 </html>

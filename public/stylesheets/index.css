@@ -26,8 +26,15 @@
     button {
         margin-left: auto;
     }
+    #messages{
+        margin: 0;
+        padding: 0;
+    }
     #messages>li {
         background-color: aliceblue;
+        list-style-type: none;
+        padding: 0.5rem 1rem; 
+        
     }
     #messages>li:nth-child(odd) { 
         background-color: #e0e0e0e7; 

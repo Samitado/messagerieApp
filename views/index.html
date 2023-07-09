@@ -5,46 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/stylesheets/index.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="/socket.io/socket.io.js"></script>
 </head>
-<script src="/socket.io/socket.io.js"></script>
 
 <body id="body">
-    <ul id="messages"></ul>
-    <form id="form" action=""> 
-        <div id="barre-message">
-            <label>Type Here...</label>
-            <input id="input" type="text"/>
-            <button type="submit">Send</button>
-        </div>
-    </form>
-    <script>
-        var socket = io();
-      
-        let form = document.getElementById('form');
-        let input = document.getElementById('input');
-        let messages = document.getElementById('messages')
-        
-
-        function createLiItem(content) {
-            let li = document.createElement('li');
-            li.textContent = content;
-            return li
-        }
-        
-      
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          if (input.value) {
-            socket.emit('chat message', input.value);
-            input.value = '';
-          }
+    <div id="app"></div>
+ 
+    <script type="module">
+        import Messagerie from "./messagerie.js";
+        const app = Vue.createApp({
+            components:{
+                Messagerie:Messagerie
+            },
+            template:"<messagerie :socket='socket'/>",
+            data(){
+                return {
+                    socket:io()
+                }
+            }
         });
-        socket.on('chat message', (message) => {
-            messages.appendChild(createLiItem(message));
-           
-            window.scrollTo(0, document.body.scrollHeight);
-        })
+
+        var vm = app.mount("div#app")
     </script>
 </body>
-
 </html>

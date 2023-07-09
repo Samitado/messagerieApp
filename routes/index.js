@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
+const {PATH_HTML} = require('../public/utils/constantes');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.sendFile('C:\\Users\\Marie .LAPTOP-7GKVKGSC\\Documents\\sami\\messagerie\\messagerieApp\\views\\index.html');
+  res.sendFile(PATH_HTML + 'index.html');
 });
-
 
 module.exports = router;

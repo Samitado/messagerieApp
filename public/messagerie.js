@@ -12,8 +12,7 @@ const Messagerie = {
        
     <form id="form" @submit.prevent = "submitForm"> 
         <div id="barre-message">
-           <label>Type Here...</label>
-            <input ref="input" type="text" v-model="message"/>
+            <input ref="input" placeholder="type here..." type="text" v-model="message"/>
             <button type="submit">Send</button>
         </div>
     </form>`,

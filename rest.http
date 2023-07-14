@@ -1,0 +1,11 @@
+GET http://localhost:3000/client
+
+### créé le client 
+POST http://localhost:3000/client
+
+#### modifier un client
+PUT http://localhost:3000/client
+
+#### supprimer un client
+DELETE http://localhost:3000/client
+

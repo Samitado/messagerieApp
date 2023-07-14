@@ -1,13 +1,6 @@
-const mongoose = require("../node_modules/mongoose");
+const mongoose = require("mongoose");
 
 mongoose.connect("mongodb://127.0.0.1/mydb_test");
-
-const userSchema = mongoose.Schema({
-    nom : String,
-    prenom : String,
-    identifiant : String,
-    password : String
-})
 
 const Users = mongoose.model("users", userSchema);
 

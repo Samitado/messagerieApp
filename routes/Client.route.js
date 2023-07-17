@@ -4,11 +4,10 @@ const User = require('../api/Models/Client')
 
 
 router.get('/', function(req, res, next) {
-  var users = 
-  User.find().then(
+  var users = User.find().then(
     response => 
     res.send('client recupérer' + response));
-
+    
 });
 
 router.post('/', function(req, res, next) {
@@ -29,5 +28,7 @@ router.put('/', function(req, res, next) {
 router.delete('/', function(req, res, next) {
     res.send('client supprimé')
 })
+
+
 
 module.exports = router;

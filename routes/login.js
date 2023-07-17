@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next){
-    res.sendFile(PATH_HTML + 'login.html');
+    res.sendFile(PATH_HTML + '\\login.html');
     
 })
 

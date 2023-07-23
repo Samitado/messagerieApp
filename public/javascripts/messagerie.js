@@ -1,4 +1,3 @@
-
 const Messagerie = {
     props:['socket'],
     template:`

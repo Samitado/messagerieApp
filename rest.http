@@ -20,5 +20,5 @@ Content-Type: application/json
 PATCH http://localhost:3000/client
 
 #### supprimer un client
-DELETE http://localhost:3000/client/64bd45896516a41369040cbe
+DELETE http://localhost:3000/client/64bd52a4ace698d1b39023f3
 

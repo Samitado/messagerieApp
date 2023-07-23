@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "full" : "npm run mongo & npm run start",
-    "mongo" : "docker-compose up -d --force-recreate",
+    "mongo" : "docker-compose up -d",
     "start": "node ./bin/www"
   },
   "dependencies": {

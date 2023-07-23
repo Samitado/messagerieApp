@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../api/Models/Client')
+const User = require('../Models/Client')
 
 //findById
 router.get('/:id', function(req, res, next) {
@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
 //enregistrer un client
 router.post('/', function(req, res, next) {
     const user = new User({
-        nom: req.body.name,
+        nom: req.body.nom,
         prenom: req.body.prenom,
         identifiant: req.body.identifiant,
         password: req.body.password
@@ -44,7 +44,5 @@ router.delete('/:id', function(req, res, next) {
     .then(result => console.log(result))
     .catch(err => console.log(err.message))
 })
-
-
 
 module.exports = router;

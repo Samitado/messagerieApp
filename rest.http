@@ -2,7 +2,7 @@
 GET http://localhost:3000/client
 
 ###récuperer un client par ID
-GET http://localhost:3000/client/id
+GET http://localhost:3000/client/Marie
 
 ### créé le client 
 POST http://localhost:3000/client
@@ -20,5 +20,5 @@ Content-Type: application/json
 PATCH http://localhost:3000/client
 
 #### supprimer un client
-DELETE http://localhost:3000/client/64bd52a4ace698d1b39023f3
+DELETE http://localhost:3000/client/64bd53012db35c5ecc73bbd4
 

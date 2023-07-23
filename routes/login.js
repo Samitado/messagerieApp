@@ -13,23 +13,25 @@ router.get('/login', function(req, res, next){
 })
 
 router.post('/login', async function(req, res, next){
-    //il faut que je récupère deux données : 
-    //l'username & le password
-  //console.log(req.body)
-  //
-  //const response = await fetch('http://localhost:3000/client', 
-  //{
-  //    body:JSON.stringify(req.body), 
-  //    method: 'POST',
-  //    headers: {
-  //        'Content-Type' : 'application/json'
-  //    }
-  //})
-  //const data = await response.json()
 
-  //console.log(data)
-
-    res.redirect('/index')
+    const password = req.body.password
+    const username = req.body.username
+    console.log(username + password)
+    //Check if in DB then redirect : 
+    const response = await fetch(`http://localhost:3000/client`, {method : 'GET'})
+    response.json().then(clients => {
+       for(const client of clients){
+        console.log(client.prenom)
+        console.log(username)
+        console.log(client.prenom === username)
+        if(client.prenom === username){
+            res.redirect('/index')
+            return
+        } 
+       }
+       res.send('Client Non trouvé')
+    }).catch(err => console.log('oups'+ err.message))
+    
 })
 
 module.exports = router; 

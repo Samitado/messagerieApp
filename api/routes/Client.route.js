@@ -5,16 +5,16 @@ const User = require('../Models/Client')
 //findById
 router.get('/:id', function(req, res, next) {
     const id = req.params.id
-    const user = User.find(id)
-    .then(result => console.log(result))
-    .catch(err => console.log(err.message))
+    const user = User.findById()
+    .then(result => res.send(result))
+    .catch(err =>res.send(err.message))
 })
 
 //findAll
 router.get('/', function(req, res, next) {
   const users = User.find()
-    .then(response => res.send(response))
-    .catch( err => console.log(err.message));
+    .then(result => res.send(result))
+    .catch(err =>res.send(err.message))
     
 });
 
@@ -27,8 +27,8 @@ router.post('/', function(req, res, next) {
         password: req.body.password
     })
     user.save()
-      .then(result => console.log(result))
-      .catch(err => console.log(err.message))
+        .then(result => res.send(result))
+        .catch(err =>res.send(err.message))
 })
 
 //TODO put

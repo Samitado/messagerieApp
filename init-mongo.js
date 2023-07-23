@@ -3,7 +3,7 @@ db.createUser({
     pwd: 'sami',
     roles: [
       {
-        role: 'userAdmin',
+        role: 'dbOwner',
         db: 'messagerieDB'
       }
     ]

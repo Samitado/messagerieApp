@@ -1,11 +1,24 @@
+###récupeer tous les clients
 GET http://localhost:3000/client
+
+###récuperer un client par ID
+GET http://localhost:3000/client/id
 
 ### créé le client 
 POST http://localhost:3000/client
+Content-Type: application/json
+
+{
+    "nom":"Le Bras",
+    "prenom":"Marie",
+    "identifiant":"mlebras",
+    "password":"admin"
+}
+
 
 #### modifier un client
-PUT http://localhost:3000/client
+PATCH http://localhost:3000/client
 
 #### supprimer un client
-DELETE http://localhost:3000/client
+DELETE http://localhost:3000/client/64bd45896516a41369040cbe
 

@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <title></title>
+
 </head>
 <body>
-    
     <form action="/login" method="post" >
+        <div id="auth">
+            <h3>Identifiez-vous</h3>
+        </div>
         <div id="login">
             <label for="username">Username</label>
             <input type="text" name="username" id="username">
@@ -16,7 +20,25 @@
             <label for="password">Password</label>
             <input type="password" name="password" id="password">
         </div>
-            <button type="submit">Submit</button>
+        <div>
+            <button type="submit" name="login">S'authentifier</button>
+        </div>
+    </form>
+
+    <div>OU</div>
+
+    <form action="/creation" method ="post">
+        <div>
+            <label for = "nUser">New User</label>
+            <input type="text" name="nUser" id="nUser">
+        </div>
+        <div>
+            <label for = "nMdp">New Mdp</label>
+            <input type="text" name="nMdp" id="nMdp">
+        </div>
+        <div>
+            <button type="submit" >Créer un compte</button>
+        </div>
     </form>
     
     <script>

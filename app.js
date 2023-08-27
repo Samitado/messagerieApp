@@ -1,20 +1,21 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
 const clientRoute = require('./api/routes/Client.route.js')
+const creationRouter = require('./routes/creation');
 
-var app = express()
-
-
+const app = express()
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+console.log(__dirname);
 
 //app.use(logger('dev')); 
 app.use(express.json());
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', loginRouter)
 app.use('/index', indexRouter)
+app.use('/creation', creationRouter)
 //from API
 app.use('/client', clientRoute)
 

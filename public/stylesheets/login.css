@@ -1,0 +1,9 @@
+#auth {
+
+    height: 50px;
+}
+
+div {
+    display: grid;
+    justify-content: center;
+}

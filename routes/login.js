@@ -8,12 +8,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next){
-    res.sendFile(PATH_HTML + '\\login.html');
+    res.sendFile(PATH_HTML + '/login.html');
     
 })
 
 router.post('/login', async function(req, res, next){
-
     const password = req.body.password
     const username = req.body.username
     console.log(username + password)
